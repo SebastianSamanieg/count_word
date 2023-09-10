@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage{graphicx} % Required for inserting images
+\title{informe_ count_word}
+\author{joansesam }
+\date{September 2023}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{hyperref}
+
+% Configuración de estilo para el código fuente
+\lstset{
+  basicstyle=\ttfamily,
+  columns=fullflexible,
+  frame=single,
+  breaklines=true,
+  postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+}
+
+\geometry{letterpaper, margin=1in}
+
+\title{Informe de Complejidad de Algoritmos: \textbf{count\_word}}
+\author{Sebastian Samaniego}
+
+
+
+\begin{document}
+
+\maketitle
+\section*{Estructura de Datos}
+\section{Introducción}
+En este informe, analizaremos la complejidad de tiempo y espacio de dos algoritmos diferentes. El algoritmo \textbf{"documents\_containing"} crea un índice invertido a partir de una lista de documentos, mientras que el algoritmo \textbf{"most\_repeated\_words"} cuenta la frecuencia de palabras en una lista de documentos y genera un ranking de las palabras más repetidas. A continuación, se presentan los análisis de ambos algoritmos.
+
+\section{Análisis algoritmo documents\_containing}
+
+\subsection{Descripción}
+El algoritmo tiene como objetivo crear un índice invertido a partir de una lista de documentos. El índice invertido es una estructura de datos que asocia palabras con los documentos en los que aparecen. El algoritmo consta de dos funciones principales: \texttt{create\_inverted\_index} y \texttt{search\_documents\_with\_words}.
+
+\subsubsection{\texttt{create\_inverted\_index}}
+La función \texttt{create\_inverted\_index} recorre todos los documentos y crea un índice invertido de palabras. Para cada palabra en cada documento, agrega el índice del documento a la lista de documentos en los que aparece esa palabra.
+
+\subsubsection{\texttt{search\_documents\_with\_words}}
+La función \texttt{search\_documents\_with\_words} simplemente copia el índice invertido en un nuevo diccionario para buscar documentos que contengan cada palabra.
+
+\subsection{Complejidad de Tiempo}
+La complejidad de tiempo del algoritmo se puede expresar como $O(n \cdot m)$ para la creación del índice invertido y $O(k)$ para buscar documentos con palabras específicas, donde $n$ es el número de documentos, $m$ es el número total de palabras en todos los documentos y $k$ es el número de palabras únicas en los documentos.
+
+\subsection{Complejidad de Espacio}
+La complejidad de espacio está relacionada con la cantidad total de palabras únicas en todos los documentos y el número de documentos en los que aparece cada palabra.
+
+\section{Análisis algoritmo most\_repeated\_words}
+
+\subsection{Descripción}
+El algoritmo tiene como objetivo contar la frecuencia de palabras en una lista de documentos y generar un ranking de las palabras más repetidas en todos los documentos. El algoritmo consta de las siguientes partes: \texttt{contar\_palabras} y \texttt{ranking\_palabras}.
+
+\subsubsection{\texttt{contar\_palabras}}
+La función \texttt{contar\_palabras} recorre cada palabra en un documento y actualiza la frecuencia en un diccionario.
+
+\subsubsection{\texttt{ranking\_palabras}}
+La función \texttt{ranking\_palabras} utiliza la memoización para evitar recalcular las frecuencias de palabras en los documentos. Luego, itera a través de los documentos, actualiza la frecuencia total de cada palabra y genera un ranking de palabras más repetidas.
+
+\subsection{Complejidad de Tiempo}
+La complejidad de tiempo del algoritmo se puede expresar como $O(m \cdot n + k \log k)$, donde $m$ es el número de documentos, $n$ es el número promedio de palabras en un documento y $k$ es el número total de palabras únicas en todos los documentos.
+
+\subsection{Complejidad de Espacio}
+La complejidad de espacio está relacionada principalmente con el número total de palabras únicas en todos los documentos, es decir, $O(k)$.
+
+\section{Conclusiones}
+Ambos algoritmos son eficientes para sus respectivas tareas. El algoritmo \textbf{"documents\_containing"} es adecuado para crear un índice invertido a partir de una lista de documentos, mientras que el algoritmo \textbf{"most\_repeated\_words"} es útil para contar la frecuencia de palabras y generar un ranking. Sus complejidades de tiempo y espacio dependen de la naturaleza de los datos y las operaciones realizadas. En general, estos algoritmos son adecuados para conjuntos de datos de tamaño moderado y tienen un buen rendimiento en términos de tiempo y espacio.
+
+\section{Anexo}
+\href{https://github.com/SebastianSamanieg/count_word}{Repositorio: https://github.com/SebastianSamanieg/count\_word}
+
+\end{document}
+
+
